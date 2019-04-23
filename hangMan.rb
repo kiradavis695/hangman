@@ -7,7 +7,7 @@ class HangMan
     # Generate random word
     RandomWord.exclude_list << /_/	# excludes phrases
     @word = RandomWord.nouns.next
-    @misses = 4
+    @misses = 0
   end
 
   def word
