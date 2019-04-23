@@ -83,7 +83,7 @@ end
 puts "\n\nEnter a letter: \n"
 
 # Ask for user input
-input = gets.chomp
+input = gets.chomp  # chomp removes new line character
 
   # Check if input is actually a letter?
 
