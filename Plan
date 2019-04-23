@@ -1,0 +1,19 @@
+# hangman
+Ruby hangman for CS354
+
+Plan:
+
+1. Generate the secret word
+   - Random word using a library (https://rubygems.org/gems/random-word/versions/1.3.0 possibly?)
+   - Or just pick from an array of words we define
+
+2. Print prompt "Guess a letter:" and number of blank letters (i.e. "_ _ _ _ _" for the word "dodge")
+
+3. Ask for user input (a character)
+
+4. Check if letter is in word
+   - If correct, display letter instead of blank (I guess "d", now "d _ d _ _" is displayed)
+   - If incorrect, increment a count for incorrect guesses
+       - At 6, game over!
+       
+5. If we have the time, display an ASCII hangman for each incorrect guess (1 = head, 2 = head & body)
