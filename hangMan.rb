@@ -86,9 +86,10 @@ puts "\n\nEnter a letter: \n"
 input = gets.chomp  # chomp removes new line character
   # Check if input is actually a letter?
 if input =~ /[[:alpha:]]/
-  print input + " is a letter!"
+  puts input + " is a letter!"
 else
-  print input + " is not a letter!"
+  # ask for input again
+  puts input + " is not a letter!"
 end
 
 # Check if letter is in word
