@@ -13,55 +13,55 @@ class HangMan
   def word
     @word
   end
-  
+
   def length
     @word.length
   end
-  
+
   def misses
     @misses
   end
-  
+
   # increment misses
   def incMisses
     @misses = (@misses + 1)
   end
-  
+
   def printHangman
       puts "____________"
       puts "|          |"
       puts "|          |"
-      
+
     # Head
-    if (misses == 0) 
+    if (misses == 0)
       puts "|"
-      puts "|" 
-    else 
+      puts "|"
+    else
       puts "|        /. .\\ "
       puts "|        \\_^_/ "
     end
-    
+
     # Body (and arms)
-    if (misses == 0 || misses == 1) 
+    if (misses == 0 || misses == 1)
       puts "|"
       puts "|"
-    elsif (misses == 2) 
+    elsif (misses == 2)
       puts "|          | "
       puts "|          | "
-    elsif (misses == 3 || misses == 4) 
+    elsif (misses == 3 || misses == 4)
       puts "|       ---|--- "
       puts "|          | "
     end
-    
+
     # Legs
-    if (misses == 4) 
+    if (misses == 4)
       puts "|         / \\ "
       puts "|        /   \\ "
-    else 
+    else
       puts "|"
       puts "|"
     end
-    
+
       puts "|"
       puts "|__\n"
   end
@@ -73,19 +73,23 @@ h = HangMan.new
 # Print hangman
 h.printHangman
 
-# Print underscores 
+# Print underscores
 # TODO: change this so that it updates when letters are guessed
-for i in 1..h.length 
+for i in 1..h.length
   print "_ "
-end 
+end
 
-# Print prompt 
+# Print prompt
 puts "\n\nEnter a letter: \n"
 
 # Ask for user input
 input = gets.chomp  # chomp removes new line character
-
   # Check if input is actually a letter?
+if input =~ /[[:alpha:]]/
+  print input + " is a letter!"
+else
+  print input + " is not a letter!"
+end
 
 # Check if letter is in word
 
