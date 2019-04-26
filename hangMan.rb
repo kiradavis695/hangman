@@ -84,16 +84,22 @@ puts "\n\nEnter a letter: \n"
 
 # Ask for user input
 input = gets.chomp  # chomp removes new line character
-  # Check if input is actually a letter?
-if input =~ /[[:alpha:]]/
-  puts input + " is a letter!"
-  # Check if letter is in word
+all? { |e|  }
+# Once misses hit six you lose
+until h.misses == 6
 
+  # Check if input is actually a letter
+  until input =~ /[[:alpha:]]/
+    puts "Invalid input"
+    puts "\n\nEnter a letter: \n"
+    input = gets.chomp
+  end
+  # Check if letter is in word
     # Yes - change _ to letter
     # No - increment misses
-else
-  h.incMisses()
-  puts "Misses: ", h.misses
+  if h.word include input
+
+
   # ask for input again
   # Check if user has lost
 
