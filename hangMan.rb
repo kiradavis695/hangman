@@ -87,20 +87,19 @@ input = gets.chomp  # chomp removes new line character
   # Check if input is actually a letter?
 if input =~ /[[:alpha:]]/
   puts input + " is a letter!"
+  # Check if letter is in word
+
+    # Yes - change _ to letter
+    # No - increment misses
 else
+  h.incMisses()
+  puts "Misses: ", h.misses
   # ask for input again
-  puts input + " is not a letter!"
+  # Check if user has lost
+
+  # If lost, start new game?
+  # Maybe count how many wins/losses?
 end
-
-# Check if letter is in word
-
-  # Yes - change _ to letter
-  # No - increment misses
-
-# Check if user has lost
-
-# If lost, start new game?
-# Maybe count how many wins/losses?
 
 # FOR DEBUGGING:
 # puts h.word
