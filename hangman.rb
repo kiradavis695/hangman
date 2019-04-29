@@ -75,9 +75,12 @@ h.printHangman
 
 # Print underscores
 # TODO: change this so that it updates when letters are guessed
+# create a string with length of random word created.
+wordCreated = " "
 for i in 1..h.length
-  print "_ "
+   wordCreated << "_"
 end
+print wordCreated
 
 # Print prompt
 puts "\n\nEnter a letter: \n"
@@ -98,16 +101,9 @@ until h.misses == 6
     # Yes - change _ to letter
     # No - increment misses
   if h.word include input
-    for i in 1..h.length
-    if i == h.word.index(input) + 1
-        print input
-    else
-        print "_"
-    end
+     wordCreated.insert(h.word.index(input),input)
+     wordCreated.slice!(h.word.index(input) + 1)
   else 
-     for i in 1..h.length
-       print "_"
-     end
       h.incMisses
   end
   # ask for input again
