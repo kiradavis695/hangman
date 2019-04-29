@@ -33,19 +33,19 @@ class HangMan
 	puts "|          |"
 
     # Head
-    if (misses == 0)
+	if (misses == 0)
 		puts "|"
 		puts "|"
-    else
+	else
 		puts "|        /. .\\ "
 		puts "|        \\_^_/ "
-    end
+	end
 
     # Body (and arms)
-    if (misses == 0 || misses == 1)
+	if (misses == 0 || misses == 1)
 		puts "|"
 		puts "|"
-    elsif (misses == 2)
+	elsif (misses == 2)
 		puts "|          | "
 		puts "|          | "
 	elsif (misses == 3)
