@@ -88,10 +88,6 @@ end
 # Once misses hit six you lose
 until h.misses == 6
 
-	puts h.word
-	# puts h.length
-	puts h.misses
-
   # Print hangman
   h.printHangman
 
@@ -132,8 +128,10 @@ until h.misses == 6
 	break
   end
 
-  # If lost, start new game?
-  # Maybe count how many wins/losses?
+  # TODO: List all letters guessed.
+  # TODO: If letter has been guessed, don't let user guess it again (give them a warning)?
+  # TODO: If lost, start new game?
+  # TODO: Maybe count how many wins/losses?
 end
 
 # If we break out of the loop above, game over
