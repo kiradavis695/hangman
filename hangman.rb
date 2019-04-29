@@ -112,10 +112,13 @@ until h.misses == 6
 # Check if letter is in word
   # Yes - change _ to letter
   if h.word.include? input
+	 # Need loop for when word contains input char multiple times
      while h.word.include? input
 		 wordCreated.insert(h.word.index(input),input)
 		 wordCreated.slice!(h.word.index(input) + 1)
-		 h.setWord(h.word.sub(input, "_"))
+		 # replace letter in original word with _, so that we know it's been changed
+		 # in the new word.
+		 h.setWord(h.word.sub(input, "_"))				
 	 end
   # No - increment misses
   else 
