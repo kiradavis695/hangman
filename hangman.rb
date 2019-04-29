@@ -28,48 +28,48 @@ class HangMan
   end
 
   def printHangman
-      puts "____________"
-      puts "|          |"
-      puts "|          |"
+	puts "____________"
+	puts "|          |"
+	puts "|          |"
 
     # Head
     if (misses == 0)
-      puts "|"
-      puts "|"
+		puts "|"
+		puts "|"
     else
-      puts "|        /. .\\ "
-      puts "|        \\_^_/ "
+		puts "|        /. .\\ "
+		puts "|        \\_^_/ "
     end
 
     # Body (and arms)
     if (misses == 0 || misses == 1)
-      puts "|"
-      puts "|"
+		puts "|"
+		puts "|"
     elsif (misses == 2)
-      puts "|          | "
-      puts "|          | "
-    elsif (misses == 3)
-      puts "|       ---| "
-      puts "|          | "
+		puts "|          | "
+		puts "|          | "
+	elsif (misses == 3)
+		puts "|       ---| "
+		puts "|          | "
 	else
-      puts "|       ---|--- "
-      puts "|          | "
+		puts "|       ---|--- "
+		puts "|          | "
     end
 
     # Legs
     if (misses == 5)
-      puts "|         /  "
-      puts "|        /    "
+		puts "|         /  "
+		puts "|        /    "
     elsif (misses == 6)
-      puts "|         / \\ "
-      puts "|        /   \\ "
+		puts "|         / \\ "
+		puts "|        /   \\ "
     else
-      puts "|"
-      puts "|"
+		puts "|"
+		puts "|"
     end
 
-      puts "|"
-      puts "|__\n"
+	puts "|"
+	puts "|__\n"
   end
 end
 
