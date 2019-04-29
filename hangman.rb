@@ -40,11 +40,11 @@ class HangMan
   end
 		
   # increment misses
-  def incMisses
+  def inc_misses
     @misses = (@misses + 1)
   end
 
-  def printHangman
+  def print_hangman
 	puts "____________"
 	puts "|          |"
 	puts "|          |"
@@ -107,7 +107,7 @@ h = HangMan.new
 until h.game_over
 
   # Print hangman
-  h.printHangman
+  h.print_hangman
 
   # Print underscores
   print h.wordCreated
@@ -140,7 +140,7 @@ until h.game_over
 	 end
   # No - increment misses
   else 
-     h.incMisses
+     h.inc_misses
   end
 
   # TODO: List all letters guessed.
@@ -149,7 +149,7 @@ until h.game_over
   # TODO: Maybe count how many wins/losses?
 end
 
-h.printHangman
+h.print_hangman
 
 # Has user won?
 if (!h.wordCreated.include? "_")
