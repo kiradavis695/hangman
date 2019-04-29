@@ -76,13 +76,17 @@ end
 # New HangMan object
 h = HangMan.new
 
-wordCreated = " "
+wordCreated = ""
 for i in 1..h.length
 	wordCreated << "_"
 end
 
 # Once misses hit six you lose
 until h.misses == 6
+
+	puts h.word
+	# puts h.length
+	puts h.misses
 
   # Print hangman
   h.printHangman
