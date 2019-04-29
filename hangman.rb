@@ -79,24 +79,24 @@ h = HangMan.new
 # Once misses hit six you lose
 until h.misses == 6
 
-	# Print hangman
-	h.printHangman
+  # Print hangman
+  h.printHangman
 
-	# Print underscores
-	# TODO: change this so that it updates when letters are guessed
-	# create a string with length of random word created.
-	wordCreated = " "
-	for i in 1..h.length
-	   wordCreated << "_"
-	end
-	print wordCreated
+  # Print underscores
+  # TODO: change this so that it updates when letters are guessed
+  # create a string with length of random word created.
+  wordCreated = " "
+  for i in 1..h.length
+	wordCreated << "_"
+  end
+  print wordCreated
 
-	# Print prompt
-	puts "\n\nEnter a letter: \n"
+  # Print prompt
+  puts "\n\nEnter a letter: \n"
 
-	# Ask for user input
-	input = gets.chomp  # chomp removes new line character
-	all? { |e|  }
+  # Ask for user input
+  input = gets.chomp  # chomp removes new line character
+  all? { |e|  }
 
   # Check if input is actually a letter
   until input =~ /[[:alpha:]]/
