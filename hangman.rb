@@ -97,9 +97,16 @@ until h.misses == 6
   # Check if letter is in word
     # Yes - change _ to letter
     # No - increment misses
+  for i in 1..h.length
   if h.word include input
-
-
+    if i == h.word.index(input) + 1
+        print input
+    else
+        print "_"
+    end
+  else 
+      print "_"
+  end
   # ask for input again
   # Check if user has lost
 
