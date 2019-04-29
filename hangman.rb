@@ -13,6 +13,10 @@ class HangMan
   def word
     @word
   end
+  
+  def setWord(word)
+	@word = word
+  end
 
   def length
     @word.length
@@ -109,13 +113,15 @@ until h.misses == 6
   
   # all? { |e| }
   
-  # Check if letter is in word
-    # Yes - change _ to letter
-    # No - increment misses
-  # TODO: This only replaces first instance of letter, make it replace all
+# Check if letter is in word
+  # Yes - change _ to letter
   if h.word.include? input
-     wordCreated.insert(h.word.index(input),input)
-     wordCreated.slice!(h.word.index(input) + 1)
+     while h.word.include? input
+		 wordCreated.insert(h.word.index(input),input)
+		 wordCreated.slice!(h.word.index(input) + 1)
+		 h.setWord(h.word.sub(input, "_"))
+	 end
+  # No - increment misses
   else 
      h.incMisses
   end
