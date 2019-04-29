@@ -7,11 +7,16 @@ class HangMan
     # Generate random word
     RandomWord.exclude_list << /_/	# excludes phrases
     @word = RandomWord.nouns.next
+	@word_copy = @word
     @misses = 0
   end
 
   def word
     @word
+  end
+  
+  def word_copy
+    @word_copy
   end
   
   def setWord(word)
@@ -139,7 +144,7 @@ end
 
 # If we break out of the loop above, game over
 h.printHangman
-puts "You lose!"
+puts "You lose! The word was: #{h.word_copy}"
 
 # FOR DEBUGGING:
 # puts h.word
