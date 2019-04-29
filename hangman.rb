@@ -9,6 +9,10 @@ class HangMan
     @word = RandomWord.nouns.next
 	@word_copy = @word
     @misses = 0
+	@wordCreated = ""
+	for i in 1..length
+		@wordCreated << "_"
+	end
   end
 
   def word
@@ -22,6 +26,10 @@ class HangMan
   def setWord(word)
 	@word = word
   end
+  
+  def wordCreated
+	@wordCreated
+  end
 
   def length
     @word.length
@@ -30,7 +38,7 @@ class HangMan
   def misses
     @misses
   end
-
+		
   # increment misses
   def incMisses
     @misses = (@misses + 1)
@@ -42,7 +50,7 @@ class HangMan
 	puts "|          |"
 
 	# Head
-	if (misses == 0)
+	if (@misses == 0)
 	  puts "|"
 	  puts "|"
 	else
@@ -51,13 +59,13 @@ class HangMan
 	end
 
 	# Body (and arms)
-	if (misses == 0 || misses == 1)
+	if (@misses == 0 || @misses == 1)
 	  puts "|"
 	  puts "|"
-	elsif (misses == 2)
+	elsif (@misses == 2)
 	  puts "|          | "
 	  puts "|          | "
-	elsif (misses == 3)
+	elsif (@misses == 3)
 	  puts "|       ---| "
 	  puts "|          | "
 	else
@@ -66,10 +74,10 @@ class HangMan
 	end
 
 	# Legs
-	if (misses == 5)
+	if (@misses == 5)
 	  puts "|         /  "
 	  puts "|        /    "
-	elsif (misses == 6)
+	elsif (@misses == 6)
 	  puts "|         / \\ "
 	  puts "|        /   \\ "
 	else
@@ -80,24 +88,29 @@ class HangMan
 	puts "|"
 	puts "|__\n"
   end
+  
+  def game_over
+	if misses >= 6
+		true
+	elsif !@wordCreated.include? "_"
+		true
+	else
+		false
+	end
+  end
 end
 
 # New HangMan object
 h = HangMan.new
 
-wordCreated = ""
-for i in 1..h.length
-	wordCreated << "_"
-end
-
 # Once misses hit six you lose
-until h.misses == 6
+until h.game_over
 
   # Print hangman
   h.printHangman
 
   # Print underscores
-  print wordCreated
+  print h.wordCreated
 
   # Print prompt
   puts "\n\nEnter a letter: \n"
@@ -119,8 +132,8 @@ until h.misses == 6
   if h.word.include? input
 	 # Need loop for when word contains input char multiple times
      while h.word.include? input
-		 wordCreated.insert(h.word.index(input),input)
-		 wordCreated.slice!(h.word.index(input) + 1)
+		 h.wordCreated.insert(h.word.index(input),input)
+		 h.wordCreated.slice!(h.word.index(input) + 1)
 		 # replace letter in original word with _, so that we know it's been changed
 		 # in the new word.
 		 h.setWord(h.word.sub(input, "_"))				
@@ -129,12 +142,6 @@ until h.misses == 6
   else 
      h.incMisses
   end
-  
-  # Has user won yet?
-  if (!wordCreated.include? "_")
-	puts "You win!"
-	break
-  end
 
   # TODO: List all letters guessed.
   # TODO: If letter has been guessed, don't let user guess it again (give them a warning)?
@@ -142,9 +149,14 @@ until h.misses == 6
   # TODO: Maybe count how many wins/losses?
 end
 
-# If we break out of the loop above, game over
 h.printHangman
-puts "You lose! The word was: #{h.word_copy}"
+
+# Has user won?
+if (!h.wordCreated.include? "_")
+	puts "You win!"
+else
+	puts "You lose! The word was: #{h.word_copy}"
+end 
 
 # FOR DEBUGGING:
 # puts h.word
