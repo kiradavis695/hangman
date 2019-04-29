@@ -84,10 +84,6 @@ end
 # Once misses hit six you lose
 until h.misses == 6
 
-	puts h.word
-	# puts h.length
-	puts h.misses
-
   # Print hangman
   h.printHangman
 
@@ -121,10 +117,20 @@ until h.misses == 6
   else 
      h.incMisses
   end
+  
+  # Has user won yet?
+  if (!wordCreated.include? "_")
+	puts "You win!"
+	break
+  end
 
   # If lost, start new game?
   # Maybe count how many wins/losses?
 end
+
+# If we break out of the loop above, game over
+h.printHangman
+puts "You lose!"
 
 # FOR DEBUGGING:
 # puts h.word
