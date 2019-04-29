@@ -84,13 +84,14 @@ end
 # Once misses hit six you lose
 until h.misses == 6
 
+	puts h.word
+	# puts h.length
+	puts h.misses
+
   # Print hangman
   h.printHangman
 
   # Print underscores
-  # TODO: change this so that it updates when letters are guessed
-  # create a string with length of random word created.
-
   print wordCreated
 
   # Print prompt
@@ -111,6 +112,7 @@ until h.misses == 6
   # Check if letter is in word
     # Yes - change _ to letter
     # No - increment misses
+  # TODO: This only replaces first instance of letter, make it replace all
   if h.word.include? input
      wordCreated.insert(h.word.index(input),input)
      wordCreated.slice!(h.word.index(input) + 1)
