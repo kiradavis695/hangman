@@ -99,8 +99,8 @@ until h.misses == 6
   # Ask for user input
   input = gets.chomp  # chomp removes new line character
 
-  # Check if input is actually a letter
-  until input =~ /[[:alpha:]]/
+  # Check if input is actually ONE letter
+  until (input =~ /[[:alpha:]]/ && (input.length == 1))
     puts "Invalid input"
     puts "\n\nEnter a letter: \n"
     input = gets.chomp
