@@ -32,7 +32,7 @@ class HangMan
 	puts "|          |"
 	puts "|          |"
 
-    # Head
+	# Head
 	if (misses == 0)
 		puts "|"
 		puts "|"
@@ -41,7 +41,7 @@ class HangMan
 		puts "|        \\_^_/ "
 	end
 
-    # Body (and arms)
+	# Body (and arms)
 	if (misses == 0 || misses == 1)
 		puts "|"
 		puts "|"
@@ -56,17 +56,17 @@ class HangMan
 		puts "|          | "
     end
 
-    # Legs
-    if (misses == 5)
+	# Legs
+	if (misses == 5)
 		puts "|         /  "
 		puts "|        /    "
-    elsif (misses == 6)
+	elsif (misses == 6)
 		puts "|         / \\ "
 		puts "|        /   \\ "
-    else
+	else
 		puts "|"
 		puts "|"
-    end
+	end
 
 	puts "|"
 	puts "|__\n"
