@@ -107,6 +107,8 @@ until h.misses == 6
   else 
      for i in 1..h.length
        print "_"
+     end
+      h.incMisses
   end
   # ask for input again
   # Check if user has lost
