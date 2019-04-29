@@ -54,7 +54,7 @@ class HangMan
 	else
 		puts "|       ---|--- "
 		puts "|          | "
-    end
+	end
 
 	# Legs
 	if (misses == 5)
@@ -76,26 +76,27 @@ end
 # New HangMan object
 h = HangMan.new
 
-# Print hangman
-h.printHangman
-
-# Print underscores
-# TODO: change this so that it updates when letters are guessed
-# create a string with length of random word created.
-wordCreated = " "
-for i in 1..h.length
-   wordCreated << "_"
-end
-print wordCreated
-
-# Print prompt
-puts "\n\nEnter a letter: \n"
-
-# Ask for user input
-input = gets.chomp  # chomp removes new line character
-all? { |e|  }
 # Once misses hit six you lose
 until h.misses == 6
+
+	# Print hangman
+	h.printHangman
+
+	# Print underscores
+	# TODO: change this so that it updates when letters are guessed
+	# create a string with length of random word created.
+	wordCreated = " "
+	for i in 1..h.length
+	   wordCreated << "_"
+	end
+	print wordCreated
+
+	# Print prompt
+	puts "\n\nEnter a letter: \n"
+
+	# Ask for user input
+	input = gets.chomp  # chomp removes new line character
+	all? { |e|  }
 
   # Check if input is actually a letter
   until input =~ /[[:alpha:]]/
