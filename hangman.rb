@@ -76,6 +76,11 @@ end
 # New HangMan object
 h = HangMan.new
 
+wordCreated = " "
+for i in 1..h.length
+	wordCreated << "_"
+end
+
 # Once misses hit six you lose
 until h.misses == 6
 
@@ -85,10 +90,7 @@ until h.misses == 6
   # Print underscores
   # TODO: change this so that it updates when letters are guessed
   # create a string with length of random word created.
-  wordCreated = " "
-  for i in 1..h.length
-	wordCreated << "_"
-  end
+
   print wordCreated
 
   # Print prompt
@@ -96,7 +98,6 @@ until h.misses == 6
 
   # Ask for user input
   input = gets.chomp  # chomp removes new line character
-  all? { |e|  }
 
   # Check if input is actually a letter
   until input =~ /[[:alpha:]]/
@@ -104,17 +105,18 @@ until h.misses == 6
     puts "\n\nEnter a letter: \n"
     input = gets.chomp
   end
+  
+  # all? { |e| }
+  
   # Check if letter is in word
     # Yes - change _ to letter
     # No - increment misses
-  if h.word include input
+  if h.word.include? input
      wordCreated.insert(h.word.index(input),input)
      wordCreated.slice!(h.word.index(input) + 1)
   else 
-      h.incMisses
+     h.incMisses
   end
-  # ask for input again
-  # Check if user has lost
 
   # If lost, start new game?
   # Maybe count how many wins/losses?
