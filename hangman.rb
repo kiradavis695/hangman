@@ -15,16 +15,16 @@ class HangMan
 	end
   end
 
-  def word
+  def word			# getter method
     @word
+  end
+  
+  def word=(word)	# setter method
+	@word = word
   end
   
   def word_copy
     @word_copy
-  end
-  
-  def setWord(word)
-	@word = word
   end
   
   def wordCreated
@@ -136,7 +136,7 @@ until h.game_over
 		 h.wordCreated.slice!(h.word.index(input) + 1)
 		 # replace letter in original word with _, so that we know it's been changed
 		 # in the new word.
-		 h.setWord(h.word.sub(input, "_"))				
+		 h.word=(h.word.sub(input, "_"))				
 	 end
   # No - increment misses
   else 
