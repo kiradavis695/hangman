@@ -103,7 +103,7 @@ end
 # New HangMan object
 h = HangMan.new
 
-# Once misses hit six you lose
+# While game isn't over, loop
 until h.game_over
 
   # Print hangman
