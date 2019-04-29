@@ -48,13 +48,19 @@ class HangMan
     elsif (misses == 2)
       puts "|          | "
       puts "|          | "
-    elsif (misses == 3 || misses == 4)
+    elsif (misses == 3)
+      puts "|       ---| "
+      puts "|          | "
+	else
       puts "|       ---|--- "
       puts "|          | "
     end
 
     # Legs
-    if (misses == 4)
+    if (misses == 5)
+      puts "|         /  "
+      puts "|        /    "
+    elsif (misses == 6)
       puts "|         / \\ "
       puts "|        /   \\ "
     else
@@ -75,9 +81,12 @@ h.printHangman
 
 # Print underscores
 # TODO: change this so that it updates when letters are guessed
+# create a string with length of random word created.
+wordCreated = " "
 for i in 1..h.length
-  print "_ "
+   wordCreated << "_"
 end
+print wordCreated
 
 # Print prompt
 puts "\n\nEnter a letter: \n"
@@ -98,8 +107,11 @@ until h.misses == 6
     # Yes - change _ to letter
     # No - increment misses
   if h.word include input
-
-
+     wordCreated.insert(h.word.index(input),input)
+     wordCreated.slice!(h.word.index(input) + 1)
+  else 
+      h.incMisses
+  end
   # ask for input again
   # Check if user has lost
 
