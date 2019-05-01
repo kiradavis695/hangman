@@ -13,6 +13,7 @@ class HangMan
 	for i in 1..length
 		@wordCreated << "_"
 	end
+	  @GuessWords = ""
   end
 
   def word			# getter method
@@ -37,6 +38,9 @@ class HangMan
 
   def misses
     @misses
+  end
+  def GuessWords
+    @GuessWords
   end
 		
   # increment misses
@@ -111,6 +115,11 @@ until h.game_over
 
   # Print underscores
   print h.wordCreated
+	
+  print "\n"
+  #Print GuessedWord
+  print "Guessed letters: "
+  print h.GuessWords
 
   # Print prompt
   puts "\n\nEnter a letter: \n"
@@ -129,6 +138,11 @@ until h.game_over
   
 # Check if letter is in word
   # Yes - change _ to letter
+# check if the word is already guessed or not	
+if h.GuessWords.include? input
+    print "You have already guessed this letter"
+    print "\n"    
+else
   if h.word.include? input
 	 # Need loop for when word contains input char multiple times
      while h.word.include? input
@@ -136,15 +150,18 @@ until h.game_over
 		 h.wordCreated.slice!(h.word.index(input) + 1)
 		 # replace letter in original word with _, so that we know it's been changed
 		 # in the new word.
-		 h.word=(h.word.sub(input, "_"))				
+		 h.word=(h.word.sub(input, "_"))
+	         #add to guess list
+	         h.GuessWords << input << "-"
 	 end
   # No - increment misses
   else 
      h.inc_misses
+     #add to Guess list	  
+     h.GuessWords << input << "-"
   end
+end
 
-  # TODO: List all letters guessed.
-  # TODO: If letter has been guessed, don't let user guess it again (give them a warning)?
   # TODO: If lost, start new game?
   # TODO: Maybe count how many wins/losses?
 end
@@ -154,8 +171,18 @@ h.print_hangman
 # Has user won?
 if (!h.wordCreated.include? "_")
 	puts "You win!"
+	print "\n"
+        #Print GuessedWord
+	print "Guessed letters: "
+        print h.GuessWords
+	print "\n"
 else
 	puts "You lose! The word was: #{h.word_copy}"
+	print "\n"
+        #Print GuessedWord
+	print "Guessed letters: "
+        print h.GuessWords
+	print "\n"
 end 
 
 # FOR DEBUGGING:
