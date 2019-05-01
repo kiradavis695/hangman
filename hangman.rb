@@ -145,6 +145,7 @@ if h.GuessWords.include? input
 else
   if h.word.include? input
 	 # Need loop for when word contains input char multiple times
+	  h.GuessWords << input << "-"
      while h.word.include? input
 		 h.wordCreated.insert(h.word.index(input),input)
 		 h.wordCreated.slice!(h.word.index(input) + 1)
@@ -152,7 +153,6 @@ else
 		 # in the new word.
 		 h.word=(h.word.sub(input, "_"))
 	         #add to guess list
-	         h.GuessWords << input << "-"
 	 end
   # No - increment misses
   else 
